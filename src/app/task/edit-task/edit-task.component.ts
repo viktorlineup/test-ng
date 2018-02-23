@@ -25,8 +25,8 @@ export class EditTaskComponent implements OnInit {
                     'environment': this.formBuilder.control(task.environment, Validators.compose([Validators.required])),
                     'datetime': this.formBuilder.control({
                         year: task.datetime.getFullYear(),
-                        month: task.datetime.getMonth(),
-                        day: task.datetime.getDay()
+                        month: task.datetime.getMonth() + 1,
+                        day: task.datetime.getDate()
                     }, Validators.compose([Validators.required])),
                     'version': this.formBuilder.control(task.version, Validators.compose([Validators.required])),
                     'context': this.formBuilder.control(task.context, Validators.compose([Validators.required])),
