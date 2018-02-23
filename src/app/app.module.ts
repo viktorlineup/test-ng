@@ -14,8 +14,8 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import {InMemoryTaskService} from './task/in-memory-task.service';
-
+import {InMemoryService} from './task/in-memory-task.service';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
     declarations: [
@@ -27,14 +27,15 @@ import {InMemoryTaskService} from './task/in-memory-task.service';
     ],
     imports: [
         HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(InMemoryTaskService),
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryService),
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
+        TableModule,
         NgbModule.forRoot(),
         RouterModule.forRoot(
             appRoutes,
-            {enableTracing: true}
+            {enableTracing: false}
         )
     ],
     providers: [TaskService],

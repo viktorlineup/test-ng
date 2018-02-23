@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InMemoryTaskService } from './in-memory-task.service';
+import { InMemoryService } from './in-memory-task.service';
 
-describe('InMemoryTaskService', () => {
+describe('InMemoryService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [InMemoryTaskService]
+      providers: [InMemoryService]
     });
   });
 
-  it('should be created', inject([InMemoryTaskService], (service: InMemoryTaskService) => {
+  it('should be created', inject([InMemoryService], (service: InMemoryService) => {
     expect(service).toBeTruthy();
   }));
 });

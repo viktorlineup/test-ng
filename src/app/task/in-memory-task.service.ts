@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {InMemoryDbService} from "angular-in-memory-web-api";
 
 @Injectable()
-export class InMemoryTaskService implements InMemoryDbService {
+export class InMemoryService implements InMemoryDbService {
     createDb(): {} {
         const tasks = [
             {
@@ -20,13 +20,15 @@ export class InMemoryTaskService implements InMemoryDbService {
                 key: 'key2',
                 value: 'value2',
                 environment: 'environment2',
-                datetime: new Date(),
+                datetime: new Date(2016, 10, 2),
                 version: 'version2',
                 context: 'context2',
                 secured: false
             },
         ];
-        return {tasks};
+        return {
+            tasks
+        };
     }
 
     constructor() {
