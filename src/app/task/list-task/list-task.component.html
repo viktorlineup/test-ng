@@ -1,7 +1,9 @@
-<p-table #pTable [value]="tasks" class="p-5" [globalFilterFields]="['id','key', 'value', 'environment', 'datetime', 'version', 'context', 'secured']">
+<p-table #pTable [value]="tasks" class="p-5"
+         [globalFilterFields]="['id','key', 'value', 'environment', 'datetime', 'version', 'context', 'secured']">
     <ng-template pTemplate="caption">
         <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-        <input type="text" pInputText size="50" placeholder="Global Filter" (input)="pTable.filterGlobal($event.target.value, 'contains')">
+        <input type="text" pInputText size="50" placeholder="Global Filter"
+               (input)="pTable.filterGlobal($event.target.value, 'contains')">
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
@@ -28,6 +30,7 @@
             <td>{{ task.secured }}</td>
             <td>
                 <button class="btn btn-danger" (click)="onDeleteTask(task)">Delete</button>
+                <a [routerLink]="['/edit-task/', task.id]" class="btn btn-info m-2">Edit</a>
             </td>
         </tr>
     </ng-template>

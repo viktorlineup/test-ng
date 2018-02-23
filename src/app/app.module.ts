@@ -27,7 +27,9 @@ import {TableModule} from 'primeng/table';
     ],
     imports: [
         HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(InMemoryService),
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryService, { dataEncapsulation: false }
+        ),
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,

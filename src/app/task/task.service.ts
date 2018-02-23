@@ -13,6 +13,10 @@ export class TaskService {
         return this.httpClient.get<Task[]>('/api/tasks');
     }
 
+    get(taskId: number): Observable<Task> {
+        return this.httpClient.get<Task>(`/api/tasks/${taskId}`);
+    }
+
     insert(task: Task): Observable<Task> {
         return this.httpClient.post<Task>('/api/tasks', task);
     }
@@ -22,6 +26,6 @@ export class TaskService {
     }
 
     update(taskId: number, task: Task): Observable<Task> {
-        return this.httpClient.put<Task>(`/api/tasks/${taskId}`, task);
+        return this.httpClient.put<Task>(`/api/tasks`, task);
     }
 }
