@@ -14,7 +14,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import {InMemoryService} from './task/in-memory-task.service';
+import {InMemoryService} from './task/in-memory.service';
 import {TableModule} from 'primeng/table';
 
 @NgModule({
