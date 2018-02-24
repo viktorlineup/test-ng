@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InMemoryService } from './in-memory-task.service';
+import { InMemoryService } from './in-memory.service';
 
 describe('InMemoryService', () => {
   beforeEach(() => {

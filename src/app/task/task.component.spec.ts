@@ -1,25 +1,30 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskComponent } from './task.component';
+import {HttpClientModule} from "@angular/common/http";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryService} from "./in-memory.service";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TableModule} from "primeng/table";
+import {ListTaskComponent} from "./list-task/list-task.component";
 
 describe('TaskComponent', () => {
-  let component: TaskComponent;
-  let fixture: ComponentFixture<TaskComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TaskComponent ]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(TaskComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryService, { dataEncapsulation: false }
+        ),
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TableModule,
+      ],
+      declarations: [
+        ListTaskComponent,
+      ],
+    });
   });
 });
