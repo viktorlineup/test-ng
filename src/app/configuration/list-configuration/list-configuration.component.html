@@ -7,6 +7,7 @@
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
+            <th></th>
             <th pSortableColumn="id">#</th>
             <th pSortableColumn="key">Key</th>
             <th pSortableColumn="value">Value</th>
@@ -20,6 +21,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-configuration>
         <tr>
+            <th><input type="checkbox"></th>
             <th>{{ configuration.id }}</th>
             <td>{{ configuration.key }}</td>
             <td>{{ configuration.value }}</td>
