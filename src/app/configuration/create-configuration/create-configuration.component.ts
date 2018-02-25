@@ -1,17 +1,17 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {TaskService} from "../task.service";
+import {ConfigurationService} from "../configuration.service";
 import {Router} from "@angular/router";
 
 @Component({
-    selector: 'app-create-task',
-    templateUrl: './create-task.component.html',
-    styleUrls: ['./create-task.component.scss']
+    selector: 'app-create-configuration',
+    templateUrl: './create-configuration.component.html',
+    styleUrls: ['./create-configuration.component.scss']
 })
-export class CreateTaskComponent implements OnInit {
+export class CreateConfigurationComponent implements OnInit {
     protected formGroup: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private taskService: TaskService, private router: Router) {
+    constructor(private formBuilder: FormBuilder, private configurationService: ConfigurationService, private router: Router) {
         this.formGroup = this.formBuilder.group({
             'key': this.formBuilder.control(null, Validators.compose([Validators.required])),
             'value': this.formBuilder.control(null, Validators.compose([Validators.required])),
@@ -33,9 +33,9 @@ export class CreateTaskComponent implements OnInit {
             const data = Object.assign({}, this.formGroup.value);
             data.datetime = new Date(value.datetime.year, value.datetime.month - 1, value.datetime.day);
 
-            this.taskService
+            this.configurationService
                 .insert(data)
-                .subscribe((task) => {
+                .subscribe((configuration) => {
                     this.router.navigate(['']);
                 });
         }

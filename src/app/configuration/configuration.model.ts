@@ -1,4 +1,4 @@
-export class Task {
+export class Configuration {
     public id?: number;
     public key: string;
     public value: string;

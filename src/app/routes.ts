@@ -1,19 +1,19 @@
 import {Routes} from '@angular/router';
-import {CreateTaskComponent} from './task/create-task/create-task.component';
-import {TaskComponent} from './task/task.component';
-import {EditTaskComponent} from "./task/edit-task/edit-task.component";
+import {ConfigurationComponent} from "./configuration/configuration.component";
+import {CreateConfigurationComponent} from "./configuration/create-configuration/create-configuration.component";
+import {EditConfigurationComponent} from "./configuration/edit-configuration/edit-configuration.component";
 
 export const appRoutes: Routes = [
     {
         path: '',
-        component: TaskComponent
+        component: ConfigurationComponent
     },
     {
-        path: 'create-task',
-        component: CreateTaskComponent
+        path: 'create-configuration',
+        component: CreateConfigurationComponent
     },
     {
-        path: 'edit-task/:id',
-        component: EditTaskComponent
+        path: 'edit-configuration/:id',
+        component: EditConfigurationComponent
     },
 ];

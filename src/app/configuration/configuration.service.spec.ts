@@ -1,12 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { TaskService } from './task.service';
+import { ConfigurationService } from './task.service';
 import {HttpClient, HttpHandler} from "@angular/common/http";
 
-describe('TaskService', () => {
+describe('ConfigurationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TaskService, HttpClient, HttpHandler]
+      providers: [ConfigurationService, HttpClient, HttpHandler]
     });
   });
     it('should be created', inject([TaskService], (service: TaskService) => {
