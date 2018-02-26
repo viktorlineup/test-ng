@@ -16,6 +16,7 @@ import {ListConfigurationComponent} from "./configuration/list-configuration/lis
 import {CreateConfigurationComponent} from "./configuration/create-configuration/create-configuration.component";
 import {EditConfigurationComponent} from "./configuration/edit-configuration/edit-configuration.component";
 import {ConfigurationService} from "./configuration/configuration.service";
+import {ConfigurationModalContentComponent} from "./configuration/modal/modal-content";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import {ConfigurationService} from "./configuration/configuration.service";
         ConfigurationComponent,
         ListConfigurationComponent,
         CreateConfigurationComponent,
-        EditConfigurationComponent
+        EditConfigurationComponent,
+        ConfigurationModalContentComponent
     ],
     imports: [
         HttpClientModule,
@@ -40,6 +42,7 @@ import {ConfigurationService} from "./configuration/configuration.service";
             {enableTracing: false}
         )
     ],
+    entryComponents: [ConfigurationModalContentComponent],
     providers: [ConfigurationService],
     bootstrap: [AppComponent],
 })

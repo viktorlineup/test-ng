@@ -20,19 +20,36 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-configuration>
-        <tr>
+        <tr class="p-5">
             <th><input type="checkbox"></th>
-            <th>{{ configuration.id }}</th>
-            <td>{{ configuration.key }}</td>
-            <td>{{ configuration.value }}</td>
-            <td>{{ configuration.environment }}</td>
-            <td>{{ configuration.datetime | date: 'mediumDate' }}</td>
-            <td>{{ configuration.version }}</td>
-            <td>{{ configuration.context }}</td>
-            <td>{{ configuration.secured }}</td>
+            <th><input disabled type="text" [value]="configuration.id" class="form-control"></th>
+            <td><input type="text" [(ngModel)]="configuration.key" class="form-control"></td>
+            <td><input type="text" [(ngModel)]="configuration.value" class="form-control"></td>
+            <td><input type="text" [(ngModel)]="configuration.environment" class="form-control"></td>
             <td>
-                <button class="btn btn-danger" (click)="onDeleteTask(configuration)">Delete</button>
-                <a [routerLink]="['/edit-configuration/', configuration.id]" class="btn btn-info m-2">Edit</a>
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="dateTimePicker.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-interface-symbol-tool.svg"
+                                 style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                        </button>
+
+                        <button class="btn btn-outline-secondary" (click)="dateTimePicker.writeValue(null)" type="button">
+                            <img src="../../../assets/img/cancel.svg"
+                                 style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                        </button>
+                    </div>
+                    <input [(ngModel)]="configuration.datetime" name="datetime" class="form-control" placeholder="yyyy-mm-dd"
+                           ngbDatepicker #dateTimePicker="ngbDatepicker" readonly="readonly">
+                </div>
+            </td>
+            <td><input type="text" [(ngModel)]="configuration.version" class="form-control"></td>
+            <td><input type="text" [(ngModel)]="configuration.context" class="form-control"></td>
+            <td><input type="checkbox" [(ngModel)]="configuration.secured" class="form-control"></td>
+            <td>
+                <!--<button class="btn btn-danger" (click)="onDeleteConfiguration(configuration)">Delete</button>-->
+                <button (click)="onUpdateConfiguration(configuration)" class="btn btn-info">Apply edit</button>
+                <!--<button [routerLink]="['edit-configuration', configuration.id]" class="btn btn-info m-2">Edit</button>-->
             </td>
         </tr>
     </ng-template>
